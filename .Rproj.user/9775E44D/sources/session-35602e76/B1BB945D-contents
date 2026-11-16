@@ -22,7 +22,7 @@ Ejecutar `scripts/tarea_a5.do`
 
 ## Autor
 
-Constanza Pinilla — Octubre 2026
+Constanza Pinilla — Noviembre 2026
 
 ## Declaración de autoría y uso de IA
 - Herramienta utilizada: Gemini Plus.
