@@ -63,7 +63,8 @@ log close
 * Los descriptivos muestran un ingreso medio de $655.291 en la muestra, con una
 * amplia brecha entre el mínimo y el máximo. Ñuble concentra la mayor proporción 
 * de la muestra (25%), mientras que por sector lidera Servicios (28.3%). Además,
-* se observa una fuerte correlación positiva (0.68) entre ingresos y educación, * destacando que el sector educación concentra un 100% de alta escolaridad. 
+* se observa una fuerte correlación positiva (0.68) entre ingresos y educación, 
+* destacando que el sector educación concentra un 100% de alta escolaridad. 
 * Estas cifras no implican causalidad directa sin un modelo econométrico adecuado.
 
 
