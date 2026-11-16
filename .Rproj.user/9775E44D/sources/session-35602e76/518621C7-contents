@@ -1,0 +1,59 @@
+# tarea4-fundamentos
+tarea 4 de fundamentos de programación para análisis económico
+
+Analiza y visualiza datos socioeconómicos y laborales de Chile (CASEN, ENE y salario mínimo)
+mediante gráficos en R con ggplot2.
+
+## Datos
+
+Archivos en `data/raw/casen_reducido.csv` 
+            `data/raw/salario_minimo_chile.csv`
+            `data/raw/ene-2026-06-mjj.csv`
+            
+## Cómo correrlo
+
+Abrir `tarea4-fundamentos.Rproj` y ejecutar `scripts/t4_parte1.R` y `scripts/t4_parte2.R`
+
+## Estructura
+
+```
+ tarea4-fundamentos/
+   ├── tarea4-fundamentos.Rproj
+   ├── data/
+       └── raw/ 
+   ├── scripts/  
+   ├── output/
+       └── figuras/
+   └── README.md
+```
+## Una línea por figura: qué muestra y cuál es su hallazgo.
+
+p1: Relación positiva entre escolaridad e ingresos, a mayor educación, mayor ingreso en ambos generos.
+
+p2: Diferencia entre el crecimiento nominal y el real del salario mínimo, el nominal crece más que el real.
+
+p3: Composición ocupacional por sexo, mayoritaria en privado para hombres y público para mujeres.
+
+g1: Dispersión de ingresos según educación y sector económico, los ingresos varían según el sector y la educación.
+
+g2: Ranking regional de ocupados informales frente al promedio nacional, la Araucanía lidera la informalidad en el país.
+
+g3: Densidad de las horas habituales de trabajo por sexo mediante gráficos de violín, concentración masiva en 40 horas con mayor dispersión y jornadas extremas masculinas.
+
+g4: Tasa de informalidad de hombres frente a mujeres por región con una diagonal, la predominancia de mayor informalidad femenina.
+
+g5: Tasa de informalidad por sexo por región en facetas, la brecha de género generalizada donde las mujeres lideran la informalidad en casi todo el país.
+
+Gráfico compuesto: Relato visual unificado que integra ingresos, informalidad y horas habituales en una sola estructura.
+
+
+## Autor
+
+Constanza Pinilla — Octubre 2026
+
+## Declaración de autoría y uso de IA
+- Herramienta utilizada: Gemini Plus
+- Para qué la usé: Para saber como modificar detalles de los gráficos, como por ejemplo
+poner una leyenda en un lado o poner en negrita los títulos.
+- Qué hice yo: Elegí los gráficos, los colores y escribí la reflexión.
+- Verificación: Confirmo que entiendo y puedo explicar todo lo que entrego.

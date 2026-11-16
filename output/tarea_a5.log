@@ -1,0 +1,181 @@
+---------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:\Users\cony7\OneDrive\Documentos\Fundamentos de programación\semana_12\output/tarea_a5.log
+  log type:  text
+ opened on:  15 Nov 2026, 22:02:27
+
+. 
+end of do-file
+
+. do "C:\Users\cony7\AppData\Local\Temp\STD6c80_000000.tmp"
+
+. import delimited "data/raw/casen_reducido.csv", clear varnames(1) encoding("utf-8")
+(6 vars, 60 obs)
+
+. describe
+
+Contains data
+ Observations:            60                  
+    Variables:             6                  
+---------------------------------------------------------------------------------------------------------
+Variable      Storage   Display    Value
+    name         type    format    label      Variable label
+---------------------------------------------------------------------------------------------------------
+region          str13   %13s                  
+sector          str13   %13s                  
+educ            byte    %8.0g                 
+edad            byte    %8.0g                 
+ingreso         long    %12.0g                
+genero          str1    %9s                   
+---------------------------------------------------------------------------------------------------------
+Sorted by: 
+     Note: Dataset has changed since last saved.
+
+. summarize
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+      region |          0
+      sector |          0
+        educ |         60    12.73333    3.328697          6         20
+        edad |         60    44.51667    15.15959         20         70
+     ingreso |         55    655290.9    209912.4     180000    1093000
+-------------+---------------------------------------------------------
+      genero |          0
+
+. 
+end of do-file
+
+. do "C:\Users\cony7\AppData\Local\Temp\STD6c80_000000.tmp"
+
+. generate experiencia = max(edad - educ - 6, 0)
+
+. 
+. generate alta_educ = (educ >= 13) if !missing(educ)
+
+. 
+. replace experiencia = 0 if experiencia < 0
+(0 real changes made)
+
+. 
+. * 4
+. label variable experiencia "Experiencia potencial (años)"
+
+. 
+end of do-file
+
+. do "C:\Users\cony7\AppData\Local\Temp\STD6c80_000000.tmp"
+
+. 
+. label variable alta_educ "Indicador de educación superior (13+ años)"
+
+. label define lb_alta 0 "Menos de 13 años" 1 "13+ años"
+
+. label values alta_educ lb_alta
+
+. 
+end of do-file
+
+. do "C:\Users\cony7\AppData\Local\Temp\STD6c80_000000.tmp"
+
+. summarize ingreso edad educ experiencia
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+     ingreso |         55    655290.9    209912.4     180000    1093000
+        edad |         60    44.51667    15.15959         20         70
+        educ |         60    12.73333    3.328697          6         20
+ experiencia |         60    25.78333     15.3182          0         53
+
+. tabulate sector
+
+       sector |      Freq.     Percent        Cum.
+--------------+-----------------------------------
+  Agricultura |         13       21.67       21.67
+     Comercio |          6       10.00       31.67
+ Construcción |          5        8.33       40.00
+    Educación |          8       13.33       53.33
+    Industria |         11       18.33       71.67
+    Servicios |         17       28.33      100.00
+--------------+-----------------------------------
+        Total |         60      100.00
+
+. tabulate region
+
+       region |      Freq.     Percent        Cum.
+--------------+-----------------------------------
+    Araucanía |         11       18.33       18.33
+       Biobío |         10       16.67       35.00
+        Maule |         12       20.00       55.00
+Metropolitana |         12       20.00       75.00
+        Ñuble |         15       25.00      100.00
+--------------+-----------------------------------
+        Total |         60      100.00
+
+. 
+. tabulate sector alta_educ, row
+
++----------------+
+| Key            |
+|----------------|
+|   frequency    |
+| row percentage |
++----------------+
+
+              |     Indicador de
+              |  educación superior
+              |      (13+ años)
+       sector | Menos de    13+ años |     Total
+--------------+----------------------+----------
+  Agricultura |         7          6 |        13 
+              |     53.85      46.15 |    100.00 
+--------------+----------------------+----------
+     Comercio |         5          1 |         6 
+              |     83.33      16.67 |    100.00 
+--------------+----------------------+----------
+ Construcción |         4          1 |         5 
+              |     80.00      20.00 |    100.00 
+--------------+----------------------+----------
+    Educación |         0          8 |         8 
+              |      0.00     100.00 |    100.00 
+--------------+----------------------+----------
+    Industria |         4          7 |        11 
+              |     36.36      63.64 |    100.00 
+--------------+----------------------+----------
+    Servicios |        10          7 |        17 
+              |     58.82      41.18 |    100.00 
+--------------+----------------------+----------
+        Total |        30         30 |        60 
+              |     50.00      50.00 |    100.00 
+
+. 
+. correlate ingreso educ experiencia
+(obs=55)
+
+             |  ingreso     educ experi~a
+-------------+---------------------------
+     ingreso |   1.0000
+        educ |   0.6767   1.0000
+ experiencia |  -0.0875  -0.1171   1.0000
+
+
+. 
+. summarize ingreso, meanonly
+
+. scalar media_ingreso = r(mean)
+
+. display "La media de ingreso calculada es: " media_ingreso
+La media de ingreso calculada es: 655290.91
+
+. 
+end of do-file
+
+. do "C:\Users\cony7\AppData\Local\Temp\STD6c80_000000.tmp"
+
+. * 7
+. log close
+      name:  <unnamed>
+       log:  C:\Users\cony7\OneDrive\Documentos\Fundamentos de programación\semana_12\output/tarea_a5.log
+  log type:  text
+ closed on:  15 Nov 2026, 22:03:35
+---------------------------------------------------------------------------------------------------------

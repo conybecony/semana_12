@@ -1,0 +1,48 @@
+-----------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:\Users\cony7\OneDrive\Documentos\Fundamentos de programa
+> ción\semana_12\output/s12s1_casen.log
+  log type:  text
+ opened on:   3 Nov 2026, 12:55:06
+
+. import delimited "data/raw/casen_reducido.csv", clear varnames(1) enc
+> oding("utf-8")
+(6 vars, 60 obs)
+
+. describe
+
+Contains data
+ Observations:            60                  
+    Variables:             6                  
+-----------------------------------------------------------------------
+Variable      Storage   Display    Value
+    name         type    format    label      Variable label
+-----------------------------------------------------------------------
+region          str13   %13s                  
+sector          str13   %13s                  
+educ            byte    %8.0g                 
+edad            byte    %8.0g                 
+ingreso         long    %12.0g                
+genero          str1    %9s                   
+-----------------------------------------------------------------------
+Sorted by: 
+     Note: Dataset has changed since last saved.
+
+. generate ingreso_miles = ingreso/1000
+(5 missing values generated)
+
+. sum ingreso educ edad 
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+     ingreso |         55    655290.9    209912.4     180000    1093000
+        educ |         60    12.73333    3.328697          6         20
+        edad |         60    44.51667    15.15959         20         70
+
+. log close 
+      name:  <unnamed>
+       log:  C:\Users\cony7\OneDrive\Documentos\Fundamentos de programa
+> ción\semana_12\output/s12s1_casen.log
+  log type:  text
+ closed on:   3 Nov 2026, 12:55:06
+-----------------------------------------------------------------------
