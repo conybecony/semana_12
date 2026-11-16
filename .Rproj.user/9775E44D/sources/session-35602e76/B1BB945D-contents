@@ -25,8 +25,8 @@ Ejecutar `scripts/tarea_a5.do`
 Constanza Pinilla — Octubre 2026
 
 ## Declaración de autoría y uso de IA
-- Herramienta utilizada: Gemini Plus
-- Para qué la usé: Como usar label y la función scalar
+- Herramienta utilizada: Gemini Plus.
+- Para qué la usé: Como usar label y la función scalar.
 - Qué hice yo: Interpretación de resultados, responder a la pregunta5 y
 escribir las funciones pedidas a excepción de label y scalar.
 - Verificación: confirmo que entiendo y puedo explicar todo lo que entrego.
